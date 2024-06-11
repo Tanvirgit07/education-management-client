@@ -34,6 +34,7 @@ const CreateModal = ({ closeModal, isOpen, singleData }) => {
     const description = form.description.value;
     const SeeDetailsId = singleData?._id;
     const assignmentSubmit = 0
+    const assignmentPost = 0
 
     try {
       const assignmentInfo = {
@@ -42,6 +43,7 @@ const CreateModal = ({ closeModal, isOpen, singleData }) => {
         description,
         SeeDetailsId,
         assignmentSubmit,
+        assignmentPost
       };
       console.log(assignmentInfo);
       await mutateAsync(assignmentInfo);
@@ -107,7 +109,7 @@ const CreateModal = ({ closeModal, isOpen, singleData }) => {
                     <textarea
                       placeholder="Bio"
                       name="description"
-                      className="textarea textarea-bordered textarea-sm textarea-secondary w-full"
+                      className="textarea textarea-bordered textarea-sm textarea-secondary w-full h-36"
                     ></textarea>
                   </div>
                   <div>

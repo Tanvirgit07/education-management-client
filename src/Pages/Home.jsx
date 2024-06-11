@@ -32,6 +32,9 @@ const Home = () => {
       <div className="">
         <HighEnroll></HighEnroll>
       </div>
+      <div>
+        
+      </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7">
         {bestCourseData.map((data) => (
           <BestCard key={data?._id} data={data}></BestCard>
