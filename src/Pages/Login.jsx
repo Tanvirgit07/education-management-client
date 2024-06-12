@@ -1,12 +1,5 @@
   
-//     const email = form.email.value;
-//     const password = form.password.value;
-//     const login = {
-//       email,
-//       password,
-//     };
-//     console.log(login);
-//     setRegisterError("");
+     
 
 //     loginUser(email, password)
 //       .then((result) => {
