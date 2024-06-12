@@ -1,8 +1,3 @@
-// import { useContext, useState } from "react";
-// import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../AuthProvider/AuthProvider";
-// import { Toaster, toast } from "sonner";
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 // const Login = () => {
 //   const { loginUser, googleLogin } = useContext(AuthContext);
