@@ -16,7 +16,7 @@ const NavBar = () => {
       });
   };
   return (
-    <div className="navbar bg-primary rounded-xl opacity-80 h-24 sticky top-0 z-10">
+    <div className="navbar bg-primary lg:rounded-xl opacity-80 h-24 lg:sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,12 +37,12 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 lg:z-[1] z-10 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-black"
                 }
                 to="/"
               >
@@ -52,7 +52,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-black"
                 }
                 to="/all-class"
               >
@@ -62,7 +62,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-black"
                 }
                 to="/teach-eduCare"
               >
@@ -143,7 +143,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-warning w-52"
+              className="mt-3 z-[1] p-2 shadow menu menu-sm  dropdown-content bg-warning w-52"
             >
               <li>
                 <p className="justify-between text-xl font-bold">
