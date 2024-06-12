@@ -1,13 +1,4 @@
-
-// const Login = () => {
-//   const { loginUser, googleLogin } = useContext(AuthContext);
-//   const [registerError, setRegisterError] = useState("");
-//   const [showPass, setShowPass] = useState(false);
-//   const navigate = useNavigate()
-//   const location = useLocation()
-//   const handleLogin = (e) => {
-//     e.preventDefault();
-//     const form = e.target;
+  
 //     const email = form.email.value;
 //     const password = form.password.value;
 //     const login = {
