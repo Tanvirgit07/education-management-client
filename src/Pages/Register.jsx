@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { toast } from "sonner";
+import { Toaster, toast } from "sonner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
@@ -9,6 +9,8 @@ const Register = () => {
     useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const navigate = useNavigate()
+  const location = useLocation()
   // const [showPass, setShowPass] = useState(false);
   const handleRegister = (e) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ const Register = () => {
           setReload(true);
           toast.success("Register Successfully!");
           setTimeout(() => {
-            // navigate('/')
+            navigate(location?.state ? location.state : "/");
           }, 2000);
         });
       })
@@ -50,7 +52,7 @@ const Register = () => {
         console.log(result.user);
         toast.success("Login Successfully!");
         setTimeout(() => {
-          // navigate(location?.state ? location.state : "/");
+          navigate(location?.state ? location.state : "/");
         }, 2000);
       })
       .catch((error) => {
@@ -59,7 +61,7 @@ const Register = () => {
   };
   return (
     <div
-      className="hero min-h-[97vh] max-w-5xl mx-auto mt-3 mb-3"
+      className="hero min-h-[100vh] mx-auto"
       style={{
         backgroundImage:
           "url(https://i.ibb.co/6tSBKYN/triangles-1430105-1280.png)",
@@ -161,6 +163,7 @@ const Register = () => {
           </button>
         </div>
       </div>
+      <Toaster richColors position="top-right" />
     </div>
   );
 };

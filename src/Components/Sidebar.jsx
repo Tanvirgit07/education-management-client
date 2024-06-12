@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GrLogout } from "react-icons/gr";
 import { FcSettings } from "react-icons/fc";
 import { BsChatSquareQuoteFill } from "react-icons/bs";
 // import { GrUserAdmin } from "react-icons/gr";
 import { AiOutlineBars } from "react-icons/ai";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MdClass, MdLibraryAdd } from "react-icons/md";
 import UseAuth from "../Hooks/useAuth";
 import { RiPresentationLine } from "react-icons/ri";
@@ -16,7 +16,26 @@ const Sidebar = () => {
   const { userLogout } = UseAuth();
   const [isActive, setActive] = useState(false);
   const [role] = useRole();
+  const navigate = useNavigate()
   // console.log(role);
+
+  useEffect(()=>{
+    if(role?.role === 'admin'){
+      navigate('/dashboard/teacher-request')
+    }
+  },[navigate, role?.role])
+
+  useEffect(()=>{
+    if(role?.role === 'teacher'){
+      navigate('/dashboard/add-class')
+    }
+  },[navigate, role?.role])
+
+  useEffect(()=>{
+    if(role?.role === 'student'){
+      navigate('/dashboard/my-enroll')
+    }
+  },[navigate, role?.role])
 
   // Sidebar Responsive Handler
   const handleToggle = () => {

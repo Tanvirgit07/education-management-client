@@ -1,10 +1,15 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import Banner from "../Components/Banner";
+import { Link } from "react-router-dom";
 
 const AllClass = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: adminAllData = [], isLoading,refetch } = useQuery({
+  const {
+    data: adminAllData = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["admin-all-class"],
     queryFn: async () => {
       const { data } = await axiosSecure(`/admin-all-class`);
@@ -12,9 +17,8 @@ const AllClass = () => {
     },
   });
 
-
   const { mutateAsync } = useMutation({
-    mutationFn: async ({id, updateUser}) => {
+    mutationFn: async ({ id, updateUser }) => {
       console.log(id);
       const { data } = await axiosSecure.patch(
         `/user-all-admin/update/${id}`,
@@ -23,7 +27,6 @@ const AllClass = () => {
       return data;
     },
   });
-
 
   const handleUpdate = async (id) => {
     const user = {
@@ -35,13 +38,11 @@ const AllClass = () => {
       console.log(requestId);
       const data = await mutateAsync({ id: requestId, updateUser: user });
       console.log(data);
-      refetch()
+      refetch();
     } catch (err) {
       console.log(err.message);
     }
-
   };
-
 
   console.log(adminAllData);
   if (isLoading) {
@@ -93,20 +94,26 @@ const AllClass = () => {
                   <td>
                     <span className="">{data?.email}</span>
                   </td>
-                  <td><button 
-                  onClick={() => handleUpdate(data?._id)}
-                  className="btn btn-sm bg-green-300">
-                  Approved
-                    </button></td>
                   <td>
-                    <button className="btn btn-sm bg-red-400">
-                    Reject
+                    <button
+                      onClick={() => handleUpdate(data?._id)}
+                      className="btn btn-sm bg-green-300"
+                    >
+                      Approved
                     </button>
                   </td>
+                  <td>
+                    <button className="btn btn-sm bg-red-400">Reject</button>
+                  </td>
                   <th>
-                  <button className="btn btn-sm bg-red-400">
-                  See progress
-                    </button>
+                    <Link to={`/see-pro/${data?._id}`}>
+                      <button
+                        disabled={data?.status !== "accepted"}
+                        className="btn btn-sm bg-yellow-300"
+                      >
+                        See progress
+                      </button>
+                    </Link>
                   </th>
                   <th>{data?.status}</th>
                 </tr>

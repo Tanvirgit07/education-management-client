@@ -105,7 +105,7 @@ const CheckOutForm = ({ closeModal, classData, refetch }) => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Your work has been saved",
+          title: "Successfully Completed Your Payment !",
           showConfirmButton: false,
           timer: 1500
         });

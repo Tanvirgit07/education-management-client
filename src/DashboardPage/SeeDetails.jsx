@@ -38,6 +38,8 @@ const SeeDetails = () => {
     },
   });
 
+  console.log(totalData)
+
   const { data: totalEnrolment = [] } = useQuery({
     queryKey: ["total-enrolment", id],
     queryFn: async () => {
@@ -94,7 +96,7 @@ const SeeDetails = () => {
               </div>
               <div className="stat-title">Total Submitted Assignment</div>
               <div className="stat-value text-secondary">
-                {totalEnrolment.totalEnrolment} Ta
+                {totalData.totalAssignmentSubmit} Ta
               </div>
               <div className="stat-desc">Submitted Assignment</div>
             </div>
@@ -105,7 +107,7 @@ const SeeDetails = () => {
               </div>
               <div className="stat-title">Total Enroll</div>
               <div className="stat-value text-lime-500">
-                {totalData.totalAssignmentSubmit} Ta
+                {totalEnrolment.totalEnrolment} Ta
               </div>
               <div className="stat-desc">Your Enrolled Course</div>
             </div>

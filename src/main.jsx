@@ -27,6 +27,7 @@ import SeeDetails from "./DashboardPage/SeeDetails";
 import EnrollDetailsPage from "./Pages/EnrollDetailsPage";
 import PrivetRout from "./PrivetRout/PrivetRout";
 import Update from "./DashboardPage/Update";
+import SeePro from "./DashboardPage/SeePro";
 
 const queryClient = new QueryClient();
 
@@ -39,14 +40,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      {
-        path: "/login",
-        element: <Login></Login>,
-      },
-      {
-        path: "/register",
-        element: <Register></Register>,
-      },
+      // {
+      //   path: "/login",
+      //   element: <Login></Login>,
+      // },
+      // {
+      //   path: "/register",
+      //   element: <Register></Register>,
+      // },
       {
         path: "/teach-eduCare",
         element: <PrivetRout><TeachToEduCare></TeachToEduCare></PrivetRout>
@@ -67,8 +68,22 @@ const router = createBrowserRouter([
         path : '/enroll-details/:id',
         element : <EnrollDetailsPage></EnrollDetailsPage>
       },
+      {
+        path : '/see-pro/:id',
+        element : <SeePro></SeePro>
+      }
       
     ],
+    
+  },
+
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/register",
+    element: <Register></Register>,
   },
 
   {
@@ -106,7 +121,8 @@ const router = createBrowserRouter([
       {
         path : 'update/:id',
         element : <Update></Update>
-      }
+      },
+      
     ],
   },
 ]);

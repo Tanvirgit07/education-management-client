@@ -1,6 +1,6 @@
 const Carousel = () => {
   return (
-    <div className="carousel w-full lg:h-[90vh] my-10">
+    <div className="carousel w-full lg:h-[90vh] my-5">
       <div id="slide1" className="carousel-item relative  w-full">
         <img
           src="https://i.ibb.co/F6L9Vyj/vector-web-development-web-banner.jpg"

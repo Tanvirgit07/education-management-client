@@ -1,9 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { toast } from "sonner";
 
 const UserPage = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users = [], isLoading } = useQuery({
+  const { data: users = [], isLoading,refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const { data } = await axiosSecure(`/users`);
@@ -12,6 +13,41 @@ const UserPage = () => {
   });
 
   console.log(users);
+
+
+  
+
+  const { mutateAsync } = useMutation({
+    mutationFn: async (cardId,classData) => {
+      const { data } = await axiosSecure.patch(`/change-admin/${cardId}`, classData);
+      return data;
+    },
+    onSuccess: () => {
+      refetch()
+      toast.success("Successfully added class !");
+      setTimeout(() => {
+        // navigate("/dashboard/my-class");
+      }, 2000);
+    },
+  });
+
+
+  const handleAdmin = async (id) => {
+    const role = 'admin';
+    const status = 'pending'
+    console.log(id)
+    try {
+      const classData = {
+        role,
+        status
+      };
+      console.log(classData);
+      await mutateAsync(id,classData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   if (isLoading) {
     return <span className="loading loading-spinner text-secondary"></span>;
   }
@@ -52,7 +88,10 @@ const UserPage = () => {
                 <td>{user?.name}</td>
                 <td>{user?.role}</td>
                 <th>
-                <button className="btn btn-sm bg-lime-300">Make admin</button>
+                <button
+                disabled={user?.role === 'admin'}
+                onClick={()=>handleAdmin (user?._id)}
+                 className="btn btn-sm bg-lime-300">Make admin</button>
                 </th>
               </tr>)
            }

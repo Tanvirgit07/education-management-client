@@ -132,28 +132,38 @@ import {
 import { Fragment, useState } from "react";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Rating from "react-rating-stars-component"; // Import the rating component
 import useAuth from "../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const TrbModal = ({ closeModal, isOpen }) => {
   const [rating, setRating] = useState(0); // Add state for rating
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
-  const {user} = useAuth()
+  const { user } = useAuth();
+  const {id} = useParams()
   const { mutateAsync } = useMutation({
     mutationFn: async (classData) => {
       const { data } = await axiosSecure.post(`/feedback`, classData);
       return data;
     },
     onSuccess: () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Thanks Your Feedback !",
+        showConfirmButton: false,
+        timer: 1500
+      });
       setTimeout(() => {
-        navigate("/dashboard/my-class");
+        navigate("/dashboard/my-enroll");
       }, 2000);
     },
   });
 
   console.log(rating);
+  console.log(id);
 
   const handleAssignment = async (e) => {
     e.preventDefault();
@@ -162,7 +172,7 @@ const TrbModal = ({ closeModal, isOpen }) => {
     const assignmentSubmit = 0;
     const name = user?.displayName;
     const image = user?.photoURL;
-
+    const trbId = id
 
     try {
       const assignmentInfo = {
@@ -170,7 +180,8 @@ const TrbModal = ({ closeModal, isOpen }) => {
         rating, // Include the rating value
         assignmentSubmit,
         name,
-        image
+        image,
+        trbId
       };
       console.log(assignmentInfo);
       await mutateAsync(assignmentInfo);
@@ -210,7 +221,7 @@ const TrbModal = ({ closeModal, isOpen }) => {
                   as="h3"
                   className="text-lg font-medium text-center leading-6 text-gray-900"
                 >
-                 Please give your feedback !
+                  Please give your feedback !
                 </DialogTitle>
                 <form onSubmit={handleAssignment}>
                   <div className="mt-2 max-w-40 mx-auto">
@@ -229,6 +240,7 @@ const TrbModal = ({ closeModal, isOpen }) => {
                     <p className="font-bold mb-1 ml-1">Description</p>
                     <textarea
                       className="textarea textarea-secondary w-full h-40"
+                      name="description"
                       placeholder="Description"
                     ></textarea>
                   </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import UseAuth from "../Hooks/useAuth";
 import { MdLogin, MdLogout } from "react-icons/md";
 
@@ -16,7 +16,7 @@ const NavBar = () => {
       });
   };
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-primary rounded-xl opacity-80 h-24 sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,13 +40,34 @@ const NavBar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/all-class">All Classes</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+                }
+                to="/all-class"
+              >
+                All Classes
+              </NavLink>
             </li>
             <li>
-              <Link to="/teach-eduCare">Teach on eduCare</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+                }
+                to="/teach-eduCare"
+              >
+                Teach on eduCare
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -57,25 +78,45 @@ const NavBar = () => {
               alt=""
             />
           </div>
-          <a className="text-xl">
-            edu<span>C</span>are
+          <a className="text-3xl text-white font-bold mb-3 ml-3">
+            edu<span className="">care</span>
           </a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/all-class">All Classes</Link>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-secondary text-xl font-bold " : "font-bold text-lg text-white" 
+              }
+              to="/all-class"
+            >
+              All Classes
+            </NavLink>
           </li>
           <li>
-            <Link to="/teach-eduCare">Teach on eduCare</Link>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-secondary text-xl font-bold" : "font-bold text-lg text-white"
+              }
+              to="/teach-eduCare"
+            >
+              Teach on eduCare
+            </NavLink>
           </li>
         </ul>
       </div>
-      <div></div>
       <div className="navbar-end">
         <div className="mr-4">
           <div className="dropdown dropdown-end">
@@ -102,7 +143,7 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-warning w-52"
             >
               <li>
                 <p className="justify-between text-xl font-bold">
@@ -111,17 +152,17 @@ const NavBar = () => {
               </li>
               <div className="divider divider-success">Action</div>
               <li className="mb-3">
-                <Link
+                <NavLink
                   to="/dashboard"
                   className="justify-between text-xl font-bold"
                 >
                   Dashboard
-                </Link>
+                </NavLink>
               </li>
 
               {user ? (
                 <li>
-                  <Link
+                  <NavLink
                     className="text-xl font-bold flex items-center"
                     to="/login"
                   >
@@ -131,11 +172,11 @@ const NavBar = () => {
                         <MdLogout />
                       </p>
                     </div>
-                  </Link>
+                  </NavLink>
                 </li>
               ) : (
                 <li>
-                  <Link
+                  <NavLink
                     className="text-xl font-bold flex items-center"
                     to="/login"
                   >
@@ -145,20 +186,24 @@ const NavBar = () => {
                         <MdLogin />
                       </p>
                     </div>
-                  </Link>
+                  </NavLink>
                 </li>
               )}
             </ul>
           </div>
         </div>
-        <Link to="/login">
+        {/* <Link to="/login">
           <button className="btn btn-outline btn-primary px-4 text-lg">
             Login
           </button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
 };
 
 export default NavBar;
+
+
+
+
