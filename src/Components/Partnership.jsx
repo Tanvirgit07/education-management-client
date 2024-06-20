@@ -12,7 +12,7 @@ const Partnership = () => {
       <div className="text-center mt-5">
         <h1>Trusted by over 15,000 companies and millions of learners around the world</h1>
       </div>
-      <div className="flex gap-7 items-center my-10 justify-center">
+      <div className="grid grid-cols-1 mx-auto lg:max-w-full max-w-44 lg:grid-cols-8 mt-5 mb-6">
         <div className="w-32 h-40">
           <img src={icon1} alt="" />
         </div>

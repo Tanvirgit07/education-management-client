@@ -11,7 +11,7 @@ const Blog = () => {
         {/* <div className="hero-overlay h-[30vh] bg-opacity-60 rounded-xl"></div> */}
         <div className="hero-content text-center text-neutral-content">
           <div className="">
-            <h1 className="mb-5 text-3xl font-bold">
+            <h1 className="mb-5 lg:text-3xl font-bold">
             how a student can finish an online freelancing course productively 
             </h1>
           </div>

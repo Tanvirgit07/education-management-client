@@ -31,7 +31,7 @@ const CardDetails = () => {
   }
   console.log(classData);
   return (
-    <div className="card card-compact max-w-3xl mx-auto bg-base-100 shadow-xl my-10">
+    <div className="card card-compact max-w-3xl mx-auto bg-base-100 shadow-xl lg:my-10 mt-5">
       <figure className="h-80">
         <img className="w-full" src={classData?.photo} alt="Shoes" />
       </figure>
@@ -60,7 +60,7 @@ const CardDetails = () => {
 
         <div className="divider divider-accent">Detail info</div>
         <div>
-          <div className="flex justify-between">
+          <div className="lg:flex justify-between">
             <p className="text-lg font-bold">
               Course price :{" "}
               <span className="text-red-500 text-xl">

@@ -18,7 +18,7 @@ const AllClasses = () => {
     return <span className="loading loading-spinner text-secondary"></span>;
   }
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mt-5 mb-1 ml-5">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mt-5 mb-1 lg:ml-5">
         {
             classData.map(data => <AllClassCard data ={data} key={data?._id}></AllClassCard>)
         }

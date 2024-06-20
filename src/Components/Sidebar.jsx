@@ -16,26 +16,26 @@ const Sidebar = () => {
   const { userLogout } = UseAuth();
   const [isActive, setActive] = useState(false);
   const [role] = useRole();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // console.log(role);
 
-  useEffect(()=>{
-    if(role?.role === 'admin'){
-      navigate('/dashboard/teacher-request')
+  useEffect(() => {
+    if (role?.role === "admin") {
+      navigate("/dashboard/teacher-request");
     }
-  },[navigate, role?.role])
+  }, [navigate, role?.role]);
 
-  useEffect(()=>{
-    if(role?.role === 'teacher'){
-      navigate('/dashboard/add-class')
+  useEffect(() => {
+    if (role?.role === "teacher") {
+      navigate("/dashboard/add-class");
     }
-  },[navigate, role?.role])
+  }, [navigate, role?.role]);
 
-  useEffect(()=>{
-    if(role?.role === 'student'){
-      navigate('/dashboard/my-enroll')
+  useEffect(() => {
+    if (role?.role === "student") {
+      navigate("/dashboard/my-enroll");
     }
-  },[navigate, role?.role])
+  }, [navigate, role?.role]);
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -56,9 +56,19 @@ const Sidebar = () => {
     <>
       {/* Small Screen Navbar */}
       <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
+        <div className="flex h-14 font-semibold rounded-md justify-center items-center shadow-md text-2xl my-auto ">
+          <Link to="/" className="w-full">
+            <button className="btn w-full text-xl bg-orange-300">
+              <p>
+                <IoHome className="text-3xl" />
+              </p>
+              eduCare
+            </button>
+          </Link>
+        </div>
         <button
           onClick={handleToggle}
-          className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-200"
+          className="mobile-menu-button p-4 focus:outline-none focus:bg-gray-200 "
         >
           <AiOutlineBars className="h-5 w-5" />
         </button>

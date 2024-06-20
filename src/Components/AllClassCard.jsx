@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 const AllClassCard = ({ data }) => {
   return (
-    <div className="card card-compact w-96 h-[450px] bg-base-100 shadow-2xl">
+    <div className="card card-compact lg:w-96 lg:h-[450px]  bg-base-100 shadow-2xl">
       <figure className="h-60">
         <img className="hover:scale-110" src={data?.photo} alt="Shoes" />
       </figure>

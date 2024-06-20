@@ -55,9 +55,9 @@ const TeachToEduCare = () => {
     }
   };
   return (
-    <div className="max-w-4xl shadow-2xl mx-auto border-solid border-2 border-gray-300 p-10 mt-8 rounded-xl">
+    <div className="lg:max-w-4xl w-11/12 shadow-2xl mx-auto border-solid border-2 border-gray-300 p-10 mt-8 rounded-xl">
       <form onSubmit={handelEduCare}>
-        <div className="grid grid-cols-2 gap-7">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-7">
           <div>
             <p className="mb-1 ml-1">Name</p>
             <label className="input input-bordered flex items-center gap-2">

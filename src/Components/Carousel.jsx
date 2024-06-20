@@ -58,6 +58,9 @@ const Carousel = () => {
         </div>
       </div>
     </div>
+    // <div>
+    //   <h1>taniver</h1>
+    // </div>
   );
 };
 

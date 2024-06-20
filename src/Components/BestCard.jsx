@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 const BestCard = ({ data }) => {
   return (
-    <div className="card bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl w-11/12 mx-auto">
       <figure className="relative h-52">
         <img src={data?.photo} alt="Shoes" />
         <div className="absolute bottom-4 right-4 text-white font-bold text-2xl">
