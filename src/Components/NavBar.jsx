@@ -192,11 +192,7 @@ const NavBar = () => {
             </ul>
           </div>
         </div>
-        {/* <Link to="/login">
-          <button className="btn btn-outline btn-primary px-4 text-lg">
-            Login
-          </button>
-        </Link> */}
+        
       </div>
     </div>
   );
