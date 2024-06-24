@@ -17,6 +17,8 @@ const AllClass = () => {
     },
   });
 
+  
+
   const { mutateAsync } = useMutation({
     mutationFn: async ({ id, updateUser }) => {
       console.log(id);
