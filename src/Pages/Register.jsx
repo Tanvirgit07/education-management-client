@@ -11,7 +11,7 @@ const Register = () => {
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate()
   const location = useLocation()
-  // const [showPass, setShowPass] = useState(false);
+  
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
