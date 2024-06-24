@@ -4,6 +4,7 @@ import AllClassCard from "../Components/AllClassCard";
 
 const AllClasses = () => {
   const axiosSecure = useAxiosSecure();
+  
   const { data: classData = [], isLoading } = useQuery({
     queryKey: ["all-classes"],
     queryFn: async () => {
