@@ -28,6 +28,7 @@ import EnrollDetailsPage from "./Pages/EnrollDetailsPage";
 import PrivetRout from "./PrivetRout/PrivetRout";
 import Update from "./DashboardPage/Update";
 import SeePro from "./DashboardPage/SeePro";
+import ErrorPage from "./Pages/ErrorPage";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Roots></Roots>,
+    errorElement : <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -82,6 +84,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardRout></DashboardRout>,
+    errorElement : <ErrorPage></ErrorPage>,
     children: [
       {
         path: "my-enroll",
