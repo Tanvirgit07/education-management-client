@@ -28,6 +28,19 @@ const AllClass = () => {
     },
   });
 
+
+
+  const { mutateAsync : rejectFunction } = useMutation({
+    mutationFn: async ({ id, updateUser }) => {
+      console.log(id);
+      const { data } = await axiosSecure.patch(
+        `/user-all-admin/reject/${id}`,
+        updateUser
+      );
+      return data;
+    },
+  });
+
   const handleUpdate = async (id) => {
     const user = {
       status: "accepted",
@@ -37,6 +50,23 @@ const AllClass = () => {
       const requestId = id;
       console.log(requestId);
       const data = await mutateAsync({ id: requestId, updateUser: user });
+      console.log(data);
+      refetch();
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+
+  const handleReject = async (id) => {
+    const userInfo = {
+      status: "rejected",
+    };
+
+    try {
+      const rejectedId = id;
+      console.log(rejectedId);
+      const data = await rejectFunction({ id: rejectedId, updateUser: userInfo });
       console.log(data);
       refetch();
     } catch (err) {
@@ -103,7 +133,9 @@ const AllClass = () => {
                     </button>
                   </td>
                   <td>
-                    <button className="btn btn-sm bg-red-400">Reject</button>
+                    <button
+                    onClick={() => handleReject(data?._id)}
+                     className="btn btn-sm bg-red-400">Reject</button>
                   </td>
                   <th>
                     <Link to={`/see-pro/${data?._id}`}>

@@ -5,7 +5,7 @@ import { Toaster, toast } from "sonner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, setUser, updateUserProfile, setReload,googleLogin } =
+  const { createUser, setUser, updateUserProfile,googleLogin,setReload } =
     useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -132,7 +132,7 @@ const Register = () => {
             </label>
           </div>
           <span
-            className="absolute right-[45px] mt-[158px] text-xl"
+            className="absolute right-[45px] lg:mt-[158px] mt-[360px] text-xl"
             onClick={() => setShowPass(!showPass)}
           >
             {showPass ? <FaEyeSlash /> : <FaEye />}

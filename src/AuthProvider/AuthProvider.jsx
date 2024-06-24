@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [reload, setReload] = useState(null);
+  const [reload, setReload] = useState(null);
   const axiosCommon = useAxiosCommon()
 
   const createUser = (email, password) => {
@@ -86,7 +86,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, [axiosCommon]);
+  }, [axiosCommon,reload]);
 
   const authInfo = {
     createUser,
@@ -94,7 +94,7 @@ const AuthProvider = ({ children }) => {
     setUser,
     loading,
     updateUserProfile,
-    // setReload,
+    setReload,
     loginUser,
     googleLogin,
     userLogout,

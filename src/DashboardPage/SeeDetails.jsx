@@ -62,7 +62,7 @@ const SeeDetails = () => {
     <div>
       <div>
         <div
-          className="hero h-[20vh] mb-10 rounded-lg"
+          className="hero h-[20vh] mb-10 rounded-lg mt-5"
           style={{
             backgroundImage:
               "url(https://i.ibb.co/s5GKMYh/universe-1566161-1280.jpg)",

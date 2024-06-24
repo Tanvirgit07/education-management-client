@@ -25,11 +25,11 @@ const Sidebar = () => {
     }
   }, [navigate, role?.role]);
 
-  useEffect(() => {
-    if (role?.role === "teacher") {
-      navigate("/dashboard/add-class");
-    }
-  }, [navigate, role?.role]);
+  // useEffect(() => {
+  //   if (role?.role === "teacher") {
+  //     navigate("/dashboard/add-class");
+  //   }
+  // }, [navigate, role?.role]);
 
   useEffect(() => {
     if (role?.role === "student") {

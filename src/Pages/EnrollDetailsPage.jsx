@@ -4,6 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import TrbModal from "../Components/TrbModal";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Toaster, toast } from "sonner";
 
 const EnrollDetailsPage = () => {
   const axiosSecure = useAxiosSecure();
@@ -37,7 +38,7 @@ const EnrollDetailsPage = () => {
       return data;
     },
     onSuccess: () => {
-    
+      toast.success("Submit your assignment successfully !");
     },
 });
 
@@ -65,7 +66,7 @@ const EnrollDetailsPage = () => {
   return (
     <div className="mb-5">
       <div
-        className="hero h-[20vh] mb-10 rounded-lg"
+        className="hero h-[20vh] mb-10 rounded-lg mt-6"
         style={{
           backgroundImage:
             "url(https://i.ibb.co/s5GKMYh/universe-1566161-1280.jpg)",
@@ -116,12 +117,13 @@ const EnrollDetailsPage = () => {
         </div>
         <div>
           <div className="overflow-x-auto">
-            <table className="table table-zebra w-4/5 mx-auto">
+            <table className="table table-zebra">
               {/* head */}
               <thead>
                 <tr>
-                  <th></th>
+                  <th>No</th>
                   <th>Title</th>
+                  <th>Description</th>
                   <th>Deadline</th>
                   <th>Submit button</th>
                 </tr>
@@ -133,11 +135,12 @@ const EnrollDetailsPage = () => {
                   dataAssignment.map((aData,index) => <tr key={aData?._id}>
                     <th>{index + 1}</th>
                     <td>{aData?.title}</td>
+                    <td>{aData?.description.slice(0,60)}.....</td>
                     <td>{aData?.deadline}</td>
                     <td>
                     <button
                     onClick={handleSubmit}
-                     className="btn btn-sm">Submit</button>
+                     className="btn btn-sm bg-green-400">Submit</button>
                     </td>
                   </tr>)
                 }
@@ -146,6 +149,7 @@ const EnrollDetailsPage = () => {
           </div>
         </div>
       </div>
+      <Toaster richColors position="top-right" />
     </div>
   );
 };
