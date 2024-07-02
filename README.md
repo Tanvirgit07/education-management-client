@@ -1,39 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-## Website Name :
-## eduCare
-
-
-## website link 
-[website link](https://edumanagement-c174b.web.app)
-
-
-## Features
-* admin student teacher role here 
-* teacher can add class 
-* teacher can delete and update class
-* payment falality
-* student can enrole 
-
-
-## selected category's name
-### assignment12_category_0008
-### education mangement 
-
-## admin 
-# tanvir ahmmed
-# pass : #Tanvir2001#
-
-
-# Alternative Product info here !
+# Eeduction management website !
 
 
 ## Project name and description 
@@ -42,7 +7,7 @@ Currently, two official plugins are available:
 [eduCare](https://edumanagement-c174b.web.app)
 
 <h3>📝 OverView</h3>
-<P>Depending on your website project, it appears that you are offering different alternative versions of a product or service. The main objective of this project is to give the customers options according to their preferences so that they can select according to their preferences. This can help increase the chances of product preference among customers and ensure their satisfactory experience. This naturally helps in retaining the trust of the customer as they get full freedom to choose the product or service as per their choice.</P>
+<P>Education management websites provide all the necessary services and resources for students. They help students manage learning environment and time and provide important information for administrative work. It provides a comprehensive resource to students to enhance their potential in studies and work.</P>
 
 
 
